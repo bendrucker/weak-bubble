@@ -1,7 +1,7 @@
 {
   "name": "weak-bubble",
   "main": "index.js",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Bubble weakmap-events up without explicit re-broadcasting",
   "license": "MIT",
   "repository": "bendrucker/weak-bubble",
