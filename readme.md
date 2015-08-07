@@ -19,7 +19,7 @@ var state = {
   foo: {}
 }
 
-var listen = bubble(event, 'foo')
+var listen = bubble(event.listen, 'foo')
 listen(state, function (data) {
   //=> 'DATA!'
 })
