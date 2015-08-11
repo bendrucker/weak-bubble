@@ -25,3 +25,21 @@ test(function (t) {
   // noop because we've unlistened
   event.broadcast(state.foo, {})
 })
+
+test('with transform', function (t) {
+  t.plan(1)
+  var event = Event()
+  var state = {
+    foo: {
+      bar: 'baz'
+    }
+  }
+  var listen = bubble(event.listen, 'foo', function (state, data) {
+    return state.foo.bar + data.hello
+  })
+  listen(state, function listener (data) {
+    t.equal(data, 'bazworld')
+  })
+  // fires listener
+  event.broadcast(state.foo, {hello: 'world'})
+})
