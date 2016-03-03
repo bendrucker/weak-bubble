@@ -1,12 +1,26 @@
 'use strict'
 
-module.exports = function weakBubble (listen, property, transform) {
+var extend = require('xtend')
+var map = require('map-values')
+
+module.exports = weakBubble
+
+function weakBubble (events, transform) {
+  events = extend(events)
   transform = transform || identity
 
   return function listenBubbled (obj, listener) {
-    return listen(obj[property], function bubble (data) {
-      listener(transform(obj, data))
+    var listeners = map(events, function (listen, key) {
+      return listen(obj[key], function bubble (data) {
+        listener(transform(obj, data))
+      })
     })
+
+    return function unlisten () {
+      map(listeners, function (off) {
+        off()
+      })
+    }
   }
 }
 

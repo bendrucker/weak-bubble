@@ -26,5 +26,9 @@
   },
   "files": [
     "index.js"
-  ]
+  ],
+  "dependencies": {
+    "map-values": "~1.0.1",
+    "xtend": "~4.0.1"
+  }
 }

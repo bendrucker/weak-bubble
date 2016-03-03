@@ -19,7 +19,7 @@ var state = {
   foo: {}
 }
 
-var listen = bubble(event.listen, 'foo')
+var listen = bubble({foo: event.listen})
 listen(state, function (data) {
   //=> 'DATA!'
 })
@@ -28,21 +28,14 @@ event.broadcast(state.foo, 'DATA!')
 
 ## API
 
-#### `bubble(listen, property, [transform])` -> `function`
+#### `bubble(listeners, [transform])` -> `function`
 
-##### listen
-
-*Required*  
-Type: `function`
-
-The listen function from a [weakmap-event](https://github.com/eaze/weakmap-event).
-
-##### property
+##### listeners
 
 *Required*  
-Type: `string`
+Type: `object`
 
-A child property on the state. Your code should broadcast on your weakmapped event somewhere using this child state as the key.
+An object where the keys represent keys in your object and the values are the listen functions from a [weakmap-event](https://github.com/eaze/weakmap-event).
 
 ##### transform
 
