@@ -12,7 +12,9 @@ function weakBubble (events, transform) {
   return function listenBubbled (obj, listener) {
     var listeners = map(events, function (listen, key) {
       return listen(obj[key], function bubble (data) {
-        listener(transform(obj, data))
+        var value = transform(obj, data)
+        if (value === false) return
+        listener(value)
       })
     })
 

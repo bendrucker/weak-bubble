@@ -72,3 +72,21 @@ test('with transform', function (t) {
   // fires listener
   event.broadcast(state.foo, {hello: 'world'})
 })
+
+test('cancelling from transform', function (t) {
+  var event = Event()
+  var state = {
+    foo: {
+      bar: 'baz'
+    }
+  }
+  var listen = bubble({foo: event.listen}, function (state, data) {
+    return false
+  })
+  listen(state, function listener (data) {
+    t.fail('uh oh')
+  })
+  // will stop bubbling
+  event.broadcast(state.foo, {hello: 'world'})
+  t.end()
+})

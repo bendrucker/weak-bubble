@@ -44,6 +44,8 @@ Arguments: `state, data`
 
 An optional function called with the state and event data. By default, the event data is forwarded up. By passing in a function, you can add or remove properties or return entirely different data.
 
+If you return `false`, the listeners will not be called.
+
 
 ## License
 
