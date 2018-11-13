@@ -1,4 +1,4 @@
-# weak-bubble [![Build Status](https://travis-ci.org/bendrucker/weak-bubble.svg?branch=master)](https://travis-ci.org/bendrucker/weak-bubble)
+# weak-bubble [![Build Status](https://travis-ci.org/bendrucker/weak-bubble.svg?branch=master)](https://travis-ci.org/bendrucker/weak-bubble) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/weak-bubble.svg)](https://greenkeeper.io/)
 
 > Bubble weakmap-events up without explicit re-broadcasting
 
