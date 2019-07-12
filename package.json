@@ -20,7 +20,7 @@
     "weakmap"
   ],
   "devDependencies": {
-    "standard": "^12.0.1",
+    "standard": "^13.0.1",
     "tape": "^4.0.0",
     "weakmap-event": "~2.0.6"
   },
